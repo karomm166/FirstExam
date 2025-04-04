@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tumolabs</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <div class="container">
+       <img src="img/download-removebg-preview.png" alt="">
+        <h1>Just Writh</h1>
+        <textarea id="textInput" placeholder="Enter your text here..." oninput="analyzeText()"></textarea>
+        
+        <div class="metrics">
+            <p>Letters: <span id="letterCount">0</span></p>
+            <p>Words: <span id="wordCount">0</span></p>
+            <p>Sentences: <span id="sentenceCount">0</span></p>
+        </div>
+
+        <button onclick="changeBackground()">🎨 Change Background</button>
+    </div>
+
+    <script> 
+    function analyzeText()
+     {
+      let text = document.getElementById("textInput").value;
+      let letterCount = text.replace(/\s/g, "").length;
+      let wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+      let sentenceCount = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length;
+      document.getElementById("letterCount").innerText = letterCount;
+      document.getElementById("wordCount").innerText = wordCount;
+      document.getElementById("sentenceCount").i  
+  }
+  function changeBackground() {
+      let colors = ["#FF5733", "#33FF57", "#3357FF", "#F4C542", "#A833FF"];
+      document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  }
+  </script>
+</body>
+</html>
